@@ -18,6 +18,9 @@ app.get('/about', function(request, response) {
 app.get('/projects', function(request, response) {
   response.render('pages/projects');
 });
+app.get('/api', function(request, response) {
+  response.render('pages/api');
+});
 
 
 app.listen(app.get('port'), function() {
