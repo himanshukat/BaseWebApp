@@ -21,6 +21,9 @@ app.get('/projects', function(request, response) {
 app.get('/api', function(request, response) {
   response.render('pages/api');
 });
+app.get('/database', function(request, response) {
+  response.render('pages/database');
+});
 
 
 app.listen(app.get('port'), function() {
