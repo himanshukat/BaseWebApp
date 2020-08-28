@@ -1,6 +1,8 @@
-$(document).ready(function(){
-  getWeather();
-})
+//$(document).ready(function(){
+//  getWeather();
+//})
+
+
 
 function getWeather(searchQuery){
   var url="https://api.openweathermap.org/data/2.5/weather?q=+"+searchQuery+"+&units=imperial&appid="+apiKey;
@@ -10,12 +12,12 @@ function getWeather(searchQuery){
   $(".error-message").text("");
 
   $.ajax(url,{success:function(data){
-    $(".city").text(data.name);
-    $(".temp").text(data.main.temp);
-    $(".error-message").text(data.message);
-  }, 
-  error: function(error){
-    $(".error-message").text(cod);
+    $(".city").text("City: "+data.name);
+    $(".temp").text("Temperature: "+data.main.temp+" °F");
+    console.log(data);
+  
+  }, error: function(error){
+   $(".error-message").text("City not found. Please try again");
   }})
 }
 
