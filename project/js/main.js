@@ -29,6 +29,36 @@ function searchWeather(){
   getWeather(searchQuery);
 }
 
+function getCountry(searchItem){
+  var url="https://restcountries.eu/rest/v2/name/"+searchItem;
+
+  
+  $(".capital").text("");
+  $(".error").text("");
+  $(".country").text("");
+
+  $.ajax(url,{success:function(data){console.log("loop");
+    var i=0;
+   while(i<data.length)
+  {console.log(i);
+    $(".country").text("Country: "+data[i].name);
+    $(".capital").text("Capital: "+data[i++].capital);console.log(i);}
+    console.log("loop1");
+  
+    console.log(data);
+  
+  }, error: function(error){
+   $(".error").text("Country not found. Please try again");
+  }})
+}
+function searchCountry(){
+  var searchItem = $(".search").val();
+  getCountry(searchItem);
+}
+
+
+
+
 function handleSignIn(){
   var provider = new firebase.auth.GoogleAuthProvider(); 
   firebase.auth().signInWithPopup(provider).then(function(result) {
@@ -57,7 +87,7 @@ function addMessage(postTitle,postBody){
   }
 
   var database = firebase.database().ref("posts");
-
+  
   var newPostRef = database.push();
 newPostRef.set(postData,  function(error) {
   if (error) {
@@ -73,6 +103,9 @@ function handleMessageFormSubmit(){
   var postTitle = $("#post-title").val();
   var postBody = $("#post-body").val();
   addMessage(postTitle,postBody);
+  
+  
+  
 }
 
 function getPosts(){

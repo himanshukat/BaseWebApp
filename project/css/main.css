@@ -14,6 +14,7 @@ p {
   font-size: 30px;
 }
 
+/*The CSS rule below will be applied to the HTML element with id="doge-image"*/
 #doge-image img {
   height: 140px;
   margin-top: 20px;

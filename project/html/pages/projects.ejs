@@ -1,6 +1,7 @@
 <html lang="en">
 <head>
     <% include ../helpers/head %>
+    <% include ../helpers/navbar %>
     <title>Projects</title>
 </head>
 
@@ -9,11 +10,19 @@
   <!-- the classes 'page-header' and 'btn btn-default' create bootstrap components.  -->
   <!-- Check out more components here: http://getbootstrap.com/components/ -->
   <div class="page-header">
-    <h1>Our Projects</h1>
+    <h1>Search Capital of the country</h1>
   </div>
+  <input class="search" type="text" placeholder="Enter Country">
+  <button type="button" onClick="searchCountry()">Search</button>
+  <div class="country">
 
-  <a class="nav-link " href="/">Back</a>
-
+  </div>
+  <div class="capital">
+  </div>
+  
+  <div class="error">
+  
+  </div>
 
 </body>
 
